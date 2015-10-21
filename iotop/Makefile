@@ -13,7 +13,7 @@ PKG_VERSION:=0.6
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=http://guichaz.free.fr/iotop/files/$(PKG_SOURCE)
+PKG_SOURCE_URL:=http://guichaz.free.fr/iotop/files
 PKG_MD5SUM:=5ef9456b26d7694abf3101a72e1e0d1d
 
 include $(INCLUDE_DIR)/package.mk
@@ -46,7 +46,7 @@ define Package/$(PKG_NAME)/install
 	    $(1)$(PYTHON_PKG_DIR)/
 	$(INSTALL_DIR) $(1)/opt/sbin
 	$(CP) $(PKG_INSTALL_DIR)/opt/sbin/iotop $(1)/opt/sbin/iotop
-	$(SED) 's!/usr/bin/python!/Apps/opt/bin/python!' $(1)/opt/sbin/iotop
+	$(SED) 's!/usr/bin/python!/opt/bin/python!' $(1)/opt/sbin/iotop
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
